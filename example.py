@@ -80,3 +80,46 @@ else:
 即説呪曰
 ●羯諦羯諦波羅羯諦波羅僧羯諦
 菩提薩婆訶般若心経■▲
+
+
+
+import random
+
+# 問題と選択肢を定義
+question = "日本の首都はどこですか？"
+choices = ["東京", "大阪", "埼玉", "北海道"]
+
+# 正解の選択肢を決定
+answer = choices[0]
+
+# 選択肢をシャッフル
+random.shuffle(choices)
+
+# 問題と選択肢を表示
+print(question)
+for i in range(len(choices)):
+    print(f"{i+1}. {choices[i]}")
+
+# ユーザーの回答を受け取る
+while True:
+    user_answer = int(input("回答を選択してください（1-4）: "))
+    if 1 <= user_answer <= 4:
+        break
+    else:
+        print("1から4の数字を入力してください。")
+
+# 回答が正しいかどうかをチェックして結果を表示
+if choices[user_answer-1] == answer:
+    print("正解です！")
+else:
+    print("不正解です。もう一度挑戦してください。")
+    while True:
+        user_answer = int(input("回答を選択してください（1-4）: "))
+        if 1 <= user_answer <= 4:
+            break
+        else:
+            print("1から4の数字を入力してください。")
+    if choices[user_answer-1] == answer:
+        print("正解です！")
+    else:
+        print("不正解です。")
